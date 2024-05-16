@@ -38,7 +38,7 @@ nav {
 
 .navbar-left li,
 .navbar-right li {
-    margin-right: 10px;
+    margin-left: 30px;
 }
 
 .navbar-left li:last-child,
@@ -129,12 +129,12 @@ form {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    height: 450px;
+    height: 460px;
     width: 400px;
     background-color: rgba(255, 255, 255, 0.13);
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 55%;
+    top: 57%;
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
@@ -142,6 +142,7 @@ form {
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     padding: 18px 35px;
 }
+
 
 form * {
     font-family: 'Poppins', sans-serif;
@@ -158,14 +159,14 @@ form h3 {
     text-align: center;
 }
 
-label {
+.login-form label {
     display: block;
     margin-top: 30px;
     font-size: 16px;
     font-weight: 600;
 }
 
-input {
+.login-form input {
     display: block;
     height: 50px;
     width: 100%;
@@ -174,14 +175,67 @@ input {
     padding: 0 10px;
     margin-top: 8px;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 300;
+}
+.register-form {
+    width: 60%;
+    height: 470px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 18px 35px;
+}
+
+.register-form h3 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.left-column,
+.right-column {
+    flex: 1;
+}
+
+.register-form label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600; /* Separate labels */
+    margin-top: 10px;
+}
+
+.form-group input {
+    display: block;
+    height: 50px;
+    width: 80%;
+    background-color: rgba(9, 9, 9, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 ::placeholder {
     color: #e5e5e5;
 }
 
-button {
+.login-form button {
     margin-top: 50px;
     width: 100%;
     background-color: #ffffff;
@@ -192,3 +246,81 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.register-form button {
+    margin-top: -51px;
+    width: 50%;
+    background-color: #ffffff;
+    color: #080710;
+    margin-left: 50%;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-30 {
+    align-items: center;
+    appearance: none;
+
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A; /* Text color */
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+    margin-right: 40px;
+}
+
+.button-30:focus {
+    color: #36395A; /* Text color */
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+    background-color: #FCFCFD; /* Keep the background color the same */
+    color: #36395A; /* Text color */
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.button-30:active {
+    background-color: #FCFCFD; /* Keep the background color the same */
+    color: #36395A; /* Text color */
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+  
+  .navbar-right {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-right li {
+    display: flex;
+    align-items: center;
+  }
+  
