@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body background="{{url_for('static', filename='images/background.png')}}">
+
+<header>
+    <nav>
+        <img src="{{ url_for('static', filename='images/mm_logo.png') }}" class="logo">
+        <ul class="navbar-right">
+            <li><a href="/login_account">Login</a></li>
+            <li><a href="/create_account">Register</a></li>
+        </ul>
+    </nav>
+    <nav>
+        <ul class="navbar-left">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Goals and Services</a></li>
+            <li><a href="#">Next Mission Trip</a></li>
+            <li><a href="#">How to Help</a></li>
+            <li><a href="#">Photos and Videos</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+    <div class="mm_logo"> 
+        
+    </div>
+</div>
+    
+<footer>
+    <p>&copy; 2006 - 2017 The Christian Life Movement & Solidaridad en Marcha - <a class="link" href="mailto:webmaster@clmusa.org">Webmaster</a></p>
+</footer>
+
+</body>
+</html>

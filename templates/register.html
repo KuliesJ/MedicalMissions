@@ -1,0 +1,26 @@
+{% extends 'template.html' %}
+
+{% block title %}Register | My Website{% endblock %}
+
+{% block content %}
+    <div class="register-container">
+        <h2>Register</h2>
+        <form action="" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="surename">Surename:</label><br>
+            <input type="text" id="surename" name="surename"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+            <label for="confirm_password">Confirm Password:</label><br>
+            <input type="password" id="confirm_password" name="confirm_password"><br>
+            <label for="birthdate">Birthdate:</label><br>
+            <input type="date" id="birthdate" name="birthdate"><br><br>
+            <label for="country">Country:</label><br>
+            <input type="text" id="country" name="country"><br><br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+{% endblock %}

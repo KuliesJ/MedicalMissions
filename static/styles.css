@@ -1,0 +1,122 @@
+:root {
+    --base-color: #945200;
+    --secondary-color: #6c757d; /* Gray color */
+    --accent-color: #ffc107; /* Yellow color */
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: var(--base-color);
+    color: #fff;
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 20%;
+}
+.navbar-left,
+.navbar-right {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-left li,
+.navbar-right li {
+    margin-right: 10px;
+}
+
+.navbar-left li:last-child,
+.navbar-right li:last-child {
+    margin-right: 0;
+}
+
+.navbar-left a,
+.navbar-right a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.navbar-right a:hover,
+.navbar-left a:hover{
+    color: #660000;
+    font-weight: 10;
+}
+
+/* CSS for image and text containers */
+.imageContainer {
+    float: left;
+    width: 39%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 20px; /* Add some space between image and text */
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.imageContainer img {
+    width: 100%; /* Make the image fill its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+}
+
+.link {
+    color: #660000; /* Blue color, adjust as needed */
+    text-decoration: none; /* Remove default underline */
+}
+
+.link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.textContainer {
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 8px;
+    float: left; /* Float the text container to the left */
+    width: 50%; /* Set width to 50% */
+    padding: 20px; /* Add padding */
+    box-sizing: border-box; /* Include padding in the width */
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.logo {
+    bottom: 1%;
+    right: 1%;
+    padding: 20px;
+}
+
+footer {
+    background-color: var(--base-color);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* CSS styles for the banner */
+header nav img {
+    width: 65%; /* Set width to 100% */
+    display: block; /* Ensure the image is displayed as a block element */
+}

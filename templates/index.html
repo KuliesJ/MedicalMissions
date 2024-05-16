@@ -1,0 +1,26 @@
+{% extends 'template.html' %}
+
+{% block title %}Home | Medical Missions{% endblock %}
+
+{% block content %}
+    
+    <div class="imageContainer">
+        <img src="{{ url_for('static', filename='images/homed.png') }}"> 
+    </div>
+
+    <div class="textContainer">
+        <h2>About the Medical Missions to Peru</h2>
+        <p>The Medical Missions to Peru are a joint effort of <a class="link" href="http://www.solidaridadenmarcha.org/">Solidaridad en Marcha (SEM)</a>
+            with a large group of volunteers from North America and Latin America. In some trips, we join efforts with the 
+            Canadian organization <a class="link" href="http://solidarityexperiencesabroad.org/">Solidarity Experiences Abroad, Inc</a>. 
+            Our missions seek to help people in material and spiritual need, according to their dignity and human rights.</p>
+
+        <h2>About Solidaridad en Marcha (SEM)</h2>
+        <p><a class="link" href="http://www.solidaridadenmarcha.org/">Solidaridad en Marcha (SEM)</a> is an association of the 
+            <a class="link" href="http://clmusa.org/">Christian Life Movement USA (CLM-USA)</a>, which for 22 years has helped 
+            to sponsor integral human development in most needed Peruvian communities through the promotion of health, education, and 
+            community development.</p>
+            
+    </div>
+    
+{% endblock %}
