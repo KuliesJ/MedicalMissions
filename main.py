@@ -30,6 +30,25 @@ def register():
 
     return render_template("register.html")
 
+@app.route('/goals_and_services')
+def goalsServices():
+    return render_template("goals_services.html")
+
+@app.route('/next_mission')
+def nextMission():
+    return render_template("next_mission.html")
+
+@app.route('/donations')
+def donations():
+    return render_template("donations.html")
+
+@app.route('/contact_us')
+def contactUs():
+    return render_template("contact_us.html")
+
+@app.route('/photo_videos')
+def photoVideos():
+    return render_template("photo_videos.html")
 
 @app.route('/login_account', methods=['GET', 'POST'])
 def login():
