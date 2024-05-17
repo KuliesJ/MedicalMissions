@@ -25,7 +25,7 @@ def main():
     sql_create_users_table = """ CREATE TABLE IF NOT EXISTS users (
                                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                                         Name TEXT NOT NULL,
-                                        Surename TEXT NOT NULL,
+                                        Surname TEXT NOT NULL,
                                         Birthdate TEXT NOT NULL,
                                         Country TEXT NOT NULL,
                                         Email TEXT NOT NULL,

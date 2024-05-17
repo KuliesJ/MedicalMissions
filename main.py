@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
+import bcrypt
 
 app = Flask(__name__)
+app.secret_key = 'app.OsJoMeMi'
 
 @app.route('/')
 def index():
@@ -11,7 +13,7 @@ def index():
 def register():
     if request.method == 'POST':
         name = request.form['name']
-        surename = request.form['surename']
+        surname = request.form['surname']
         email = request.form['email']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
@@ -20,13 +22,19 @@ def register():
 
         if password != confirm_password:
             return render_template("register.html", error="Passwords do not match")
-
+        # Hash the password
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO users (Name, Surename, Birthdate, Country, Email, Password, Approved) VALUES (?, ?, ?, ?, ?, ?, ?)", (name, surename, birthdate, country, email, password, 0))
+        cursor.execute("SELECT * FROM users WHERE Email = ?", (email,))
+        existing_user = cursor.fetchone()
+        if existing_user:
+            conn.close()
+            return render_template("register.html", error="Email already registered")
+        cursor.execute("INSERT INTO users (Name, Surname, Birthdate, Country, Email, Password, Approved) VALUES (?, ?, ?, ?, ?, ?, ?)", (name, surname, birthdate, country, email, hashed_password, 0))
         conn.commit()
         conn.close()
-        return redirect(url_for('index'))
+        return redirect(url_for('login'))
 
     return render_template("register.html")
 
@@ -53,20 +61,25 @@ def photoVideos():
 @app.route('/login_account', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+        cursor.execute("SELECT * FROM users WHERE Email = ?", (email,))
         user = cursor.fetchone()
         conn.close()
-        if user:
-            # User found, perform login logic
+        if user and bcrypt.checkpw(password.encode('utf-8'), user[7]):
+            session['user_id'] = user[0]
+            session['user_name'] = user[1]
             return redirect(url_for('index'))
         else:
-            # User not found or password incorrect, handle accordingly
             return render_template("login.html", error="Invalid username or password")
     return render_template("login.html")
+
+@app.route('/logout')
+def logout():
+    session.pop('user_id', None)  # Elimina el ID del usuario de la sesión
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)

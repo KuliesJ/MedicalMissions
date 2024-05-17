@@ -3,8 +3,11 @@
 {% block title %}Register | My Website{% endblock %}
 
 {% block content %}
-    <form action="" method="post" class="register-form">
+    <form action="/create_account" method="post" class="register-form">
         <h3>Register Form</h3>
+        {% if error %}
+            <p style="color: red;" class="error">{{ error }}</p>
+        {% endif %}
         <div class="form-group">
             <div class="left-column">
                 <label for="name">Name:</label>
@@ -17,8 +20,8 @@
                 <input type="date" id="birthdate" name="birthdate">
             </div>
             <div class="right-column">
-                <label for="surename">Surename:</label>
-                <input type="text" id="surename" name="surename" placeholder="Surename">
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" placeholder="Surname">
                 <label for="country">Country:</label>
                 <input type="text" id="country" name="country" placeholder="Country">
                 <label for="confirm_password">Confirm Password:</label>

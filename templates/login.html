@@ -3,11 +3,13 @@
 {% block title %}Login | My Website{% endblock %}
 
 {% block content %}
-<form action="" method="post" class="login-form">
+<form action="/login_account" method="post" class="login-form">
     <h3>Login Here</h3>
-
-    <label for="username">Username</label>
-    <input type="text" placeholder="Username" id="username" name="username">
+    {% if error %}
+        <p style="color: red;" class="error">{{ error }}</p>
+    {% endif %}
+    <label for="email">Email</label>
+    <input type="text" placeholder="Email" id="email" name="email">
 
     <label for="password">Password</label>
     <input type="password" placeholder="Password" id="password" name="password">

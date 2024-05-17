@@ -260,6 +260,20 @@ form h3 {
     cursor: pointer;
 }
 
+.error {
+    position: absolute;
+    top: 0px; /* Ajusta la posición vertical */
+    left: 10px; /* Ajusta la posición horizontal */
+    background-color: #f8d7da; /* Color de fondo */
+    color: #721c24; /* Color del texto */
+    border: 1px solid #f5c6cb; /* Borde */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de fuente */
+    max-width: calc(100% - 20px); /* Asegura que no desborde el contenedor */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
 .button-30 {
     align-items: center;
     appearance: none;
