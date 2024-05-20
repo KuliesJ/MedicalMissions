@@ -1,0 +1,35 @@
+{% extends 'template.html' %}
+
+{% block title %}Home | Medical Missions{% endblock %}
+
+{% block content %}
+<h1>Past Missions</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Date to Begin</th>
+                <th>Date to End</th>
+                <th>Itinerary</th>
+                <th>Cost</th>
+                <th>Cost Description</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mission in missions %}
+                <tr>
+                    <td>{{ mission[0] }}</td>
+                    <td>{{ mission[1] }}</td>
+                    <td>{{ mission[2] }}</td>
+                    <td>{{ mission[3] }}</td>
+                    <td>{{ mission[4] }}</td>
+                    <td>{{ mission[5] }}</td>
+                    <td>{{ mission[6] }}</td>
+                    <td>{{ mission[7] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

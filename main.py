@@ -58,6 +58,26 @@ def contactUs():
 def photoVideos():
     return render_template("photo_videos.html")
 
+def getMissions():
+    conn = sqlite3.connect('database.db')  # Connect to the database
+    cursor = conn.cursor()
+    
+    # Execute the query to fetch all missions
+    cursor.execute("SELECT id, Name, Date_to_begin, Date_to_end, Itinerary, Cost, mission_cost_description, Contact FROM missions")
+    
+    # Fetch all rows from the executed query
+    missions = cursor.fetchall()
+    
+    # Close the connection
+    conn.close()
+    
+    return missions
+
+@app.route('/previous_missions')
+def previousMissions():
+    listMissions = getMissions()
+    return render_template('previous_missions.html', missions=listMissions)
+
 @app.route('/login_account', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
