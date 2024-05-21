@@ -73,6 +73,27 @@ def getMissions():
     
     return missions
 
+def getMission(mission_name):
+    # Connect to your database (replace 'database.db' with your actual database file)
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+
+    # Use parameterized query to prevent SQL injection
+    cursor.execute("""
+        SELECT id, Name, Date_to_begin, Date_to_end, Itinerary, Cost, mission_cost_description, Contact
+        FROM missions
+        WHERE Name = ?
+    """, (mission_name,))
+
+    mission = cursor.fetchone()
+    conn.close()
+    return mission
+
+@app.route('/mission_information/<mission_name>')
+def missionInformation(mission_name):
+    mission_ = getMission(mission_name)
+    return render_template('mission_information.html', mission=mission_)
+
 @app.route('/terms_and_conditions')
 def termsAndConditions():
     return render_template('terms.html')
