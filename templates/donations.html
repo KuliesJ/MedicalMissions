@@ -12,32 +12,46 @@
         <h2>DONATE ONLINE</h2>
         <p>(Tax deductible)</p>
         <p>Please join our mission efforts and make your tax deductible donation using PayPal by clicking the button below.</p>
+        <a href="https://www.paypal.com/donate?token=maOska9quuT_TJAkrRmWv6IxSuwPwbWPlkbsvYxm8WvAlU3LjGSv7IKQfd_-zRC0yoiGQP2hCJn4nxco" target="_blank">
+            <img src="{{ url_for('static', filename='images/donate.png') }}">
+        </a>
+       
         <p>PayPal - The safer, easier way to pay online!</p>
         <p>Or Mail your donation to:</p>
         <p>Denise McNeely (c/o CLM)<br>
         6251 W. Alamo Dr.<br>
         Littleton, CO, 80123</p>
         <h3>PAYING WITH CHECK or MONEY ORDER:</h3>
-        <p>Make checks/money orders to:</p>
-        <p>Christian Life Movement</p>
-        <p>and</p>
-        <p>Write a Memo on the check: "(specify cause)"</p>
-        <p>MAIL TO:</p>
-        <p>Denise McNeely (c/o Medical Missions)<br>
-        6251 W. Alamo Dr.<br>
-        Littleton, CO, 80123</p>
+        <table class="donation-table">
+            <tr>
+                <td class="donation-cell">
+                    <h3>Make checks/money orders to:</h3>
+                    <p>Christian Life Movement</p>
+                    <p>and</p>
+                    <p>Write a Memo on the check: "(specify cause)"</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="donation-cell">
+                    <h3>MAIL TO:</h3>
+                    <p>Denise McNeely (c/o Medical Missions)<br>
+                    6251 W. Alamo Dr.<br>
+                    Littleton, CO, 80123</p>
+                </td>
+            </tr>
+        </table>
+        
         <h3>Non-Monetary Donations</h3>
         <p>(We discourage material donations for emergency cases)</p>
         <p>Below is the basic information on current Peruvian legislation about sending non-monetary donations to Peru:</p>
-        <p><a href="#">Donation Requirements for Missions Traveling to Peru (English)</a></p>
-        <p><a href="#">Article Nº 14 of the Peruvian Supreme Decree No. 021-2008-EF (Versión en Castellano)</a></p>
-        <p><a href="#">Law of Facilitation of the Dispatch of Donated Merchandise Originated in Foreign Nations - Regulation of the Law Nº 28905 (English)</a></p>
-        <p><a href="#">Model of Donation Letter (Spanish)</a> (This document must be submitted by the entity sending the donation and written in Spanish)</p>
-        <p><a href="#">Application Form for Obtaining a Ministerial Resolution to Approve Foreign Donations (English)</a> (This document must be submitted by the Peruvian entity receiving the donation and written in Spanish)</p>
+        <p><a href="/donation_requirements.html">Donation Requirements for Missions Traveling to Peru (English)<br>
+            Article Nº 14 of the Peruvian Supreme Decree No. 021-2008-EF</a></p>
+        <p><a href="{{ url_for('static', filename='documents/DS021-2008-EF-28905-English.pdf') }}" download="DS021-2008-EF-28905-English.pdf">Law of Facilitation of the Dispatch of Donated Merchandise Originated in Foreign Nations - Regulation of the Law Nº 28905 (English)</a></p>
+        <p><a href="{{ url_for('static', filename='documents/ModeloCartaDonacion.pdf') }}" download="ModeloCartaDonacion.pdf">Model of Donation Letter (Spanish)</a> (This document must be submitted by the entity sending the donation and written in Spanish)</p>
+        <p><a href="{{ url_for('static', filename='documents/ApplicationMinisterialResolutionDonation.doc') }}" download="ApplicationMinisterialResolutionDonation.doc">Application Form for Obtaining a Ministerial Resolution to Approve Foreign Donations (English)</a> (This document must be submitted by the Peruvian entity receiving the donation and written in Spanish)</p>
         <h3>Other References:</h3>
-        <p><a href="#">Orientación Aduanera (SUNAT)</a> (Official Peruvian Web Site)</p>
-        <p><a href="#">Information about Peru Non-for-Profit Organizations</a></p>
-        <p><a href="#">United States International Grantmaking (USIG)</a></p>
+        <p><a href="http://www.aduanet.gob.pe/orientacAduana/index.html" target="_blank">Orientación Aduanera (SUNAT)</a> (Official Peruvian Web Site)</p>
+        <p><a href="https://www.usig.org/#General_Legal_Forms" target="_blank">Information about Peru Non-for-Profit Organizations<br>United States International Grantmaking (USIG)</a></p>
     </div>
     
     

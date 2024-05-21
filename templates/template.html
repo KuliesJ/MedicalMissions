@@ -5,38 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Website{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
-<body background="{{url_for('static', filename='images/background.png')}}">
+<body background="{{ url_for('static', filename='images/background.png') }}">
 
-<header>
-    <nav>
-        <img src="{{ url_for('static', filename='images/mm_logo.png') }}" class="logo">
-        <ul class="navbar-right">
-            {% if 'user_id' in session %}
-            <li>Welcome, {{ session['user_name'] }}</li>
-                <li><a href="{{ url_for('logout') }}" class="button-30">Logout</a></li>
-            {% else %}
-                <li><a href="{{ url_for('login') }}" class="button-30">Login</a></li>
-                <li><a href="{{ url_for('register') }}" class="button-30">Register</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    <nav>
-        <ul class="navbar-left">
-            <li><a href="/">Home</a></li>
-            <li><a href="/goals_and_services">Goals and Services</a></li>
-            <li><a href="/next_mission">Next Mission Trip</a></li>
-            <li><a href="/donations">How to Help</a></li>
-            <li><a href="/photo_videos">Photos and Videos</a></li>
-            <li><a href="/contact_us">Contact Us</a></li>
-            <li><a href="/previous_missions">Previous Missions</a></li>
-        </ul>
-    </nav>
-</header>
+<div class="container">
+    <header>
+        <nav>
+            <img src="{{ url_for('static', filename='images/mm_logo.png') }}" class="logo">
+            <ul class="navbar-right">
+                {% if 'user_id' in session %}
+                    <li>Welcome, {{ session['user_name'] }}</li>
+                    <li><a href="{{ url_for('logout') }}" class="button-30">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}" class="button-30">Login</a></li>
+                    <li><a href="{{ url_for('register') }}" class="button-30">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <nav>
+            <ul class="navbar-left">
+                <li><a href="/">Home</a></li>
+                <li><a href="/goals_and_services">Goals and Services</a></li>
+                <li><a href="/next_mission">Next Mission Trip</a></li>
+                <li><a href="/donations">How to Help</a></li>
+                <li><a href="/photo_videos">Photos and Videos</a></li>
+                <li><a href="/contact_us">Contact Us</a></li>
+                <li><a href="/previous_missions">Previous Missions</a></li>
+                <li><a href="/terms_and_conditions">Terms and conditions</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="content">
-    {% block content %}
-    {% endblock %}
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
 </div>
 
 <footer>

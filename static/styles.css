@@ -25,6 +25,27 @@ nav {
     align-items: center;
 }
 
+/*Donation table*/
+.donation-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.donation-table tr {
+    border: 1px solid black;
+}
+
+.donation-cell {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+h3 {
+    margin-top: 0;
+}
+/*End of donation table*/
+
 .logo{
     width: 20%;
 }
@@ -59,10 +80,19 @@ nav {
     font-weight: 10;
 }
 
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 2%;
+}
+
 /* CSS for image and text containers */
 .imageContainer {
     float: left;
-    max-width: 50%;
+    width: 30%;
     padding: 20px;
     box-sizing: border-box;
     background-color: #fff;
@@ -95,7 +125,7 @@ nav {
     box-sizing: border-box;
     border-radius: 8px;
     float: left; /* Float the text container to the left */
-    width: 50%; /* Set width to 50% */
+    width: 65%; /* Set width to 50% */
     padding: 20px; /* Add padding */
     box-sizing: border-box; /* Include padding in the width */
     margin-left: 1%;
@@ -337,4 +367,3 @@ form h3 {
     display: flex;
     align-items: center;
   }
-  

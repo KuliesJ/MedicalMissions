@@ -73,6 +73,14 @@ def getMissions():
     
     return missions
 
+@app.route('/terms_and_conditions')
+def termsAndConditions():
+    return render_template('terms.html')
+
+@app.route('/about_peru')
+def aboutPeru():
+    return render_template('about_peru.html')
+
 @app.route('/previous_missions')
 def previousMissions():
     listMissions = getMissions()
