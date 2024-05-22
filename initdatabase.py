@@ -22,19 +22,39 @@ def create_table(conn, create_table_sql):
 def insert_missions(conn):
     """ insert missions into the missions table """
     missions = [
-        ('Pamplona Alta - 2018 (video)', '2018-01-01', '2018-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-        ('Pamplona Alta - 2018 (photos)', '2018-01-01', '2018-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-        ('Chachapoyas - 2017 (photos)', '2017-01-01', '2017-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-        ('Ayaviri - 2017 (photos)', '2017-01-01', '2017-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-        ('Pamplona Alta - 2014 (photos)', '2014-01-01', '2014-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-        ('Pamplona Alta - 2012 (photos)', '2012-01-01', '2012-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-        ('Ayaviri - 2012 (video)', '2012-01-01', '2012-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-        ('Pamplona Alta - 2011 (photos)', '2011-01-01', '2011-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-        ('Ayaviri - 2011 (photos)', '2011-01-01', '2011-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-        ('Pamplona Alta - 2010 (video)', '2010-01-01', '2010-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-        ('Pamplona Alta - 2010 (photos)', '2010-01-01', '2010-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-        ('Chincha, Ica - 2008 (slide show)', '2008-01-01', '2008-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder')
-    ]
+    ('Pamplona Alta - 2018 (video)', '2018-01-01', '2018-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
+    ('Chachapoyas - 2017 (photos)', '2017-01-01', '2017-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
+    ('Ayaviri - 2017 (photos)', '2017-01-01', '2017-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
+    ('Pamplona Alta - 2014 (photos)', '2014-01-01', '2014-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
+    ('Pamplona Alta - 2012 (photos)', '2012-01-01', '2012-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
+    ('Ayaviri - 2012 (video)', '2012-01-01', '2012-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
+    ('Pamplona Alta - 2011 (photos)', '2011-01-01', '2011-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
+    ('Ayaviri - 2011 (photos)', '2011-01-01', '2011-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
+    ('Pamplona Alta - 2010 (video)', '2010-01-01', '2010-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
+    ('Chincha, Ica - 2008 (slide show)', '2008-01-01', '2008-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
+    ('Ayaviri - 2023 (upcoming)', '2023-09-22', '2023-09-30', 
+     '''September 22 - Depart US\n
+        September 23 - Arrive Cusco/acclimate/Mandatory group meeting & dinner\n
+        September 24 - Day trip as a mission group/get to know each other\n
+        September 25 - Transfer to Ayaviri, set up clinic\n
+        September 26 - Medical Mission\n
+        September 27 - Medical Mission\n
+        September 28 - Medical Mission\n
+        September 29 - Medical Mission half day/home visits and pack up mission site\n
+        September 30 - Depart for home''', 
+     925.0, 
+     '''All hotel accommodations with breakfast (from September 23rd to 30th), 
+        transfer to and from the airport on September 23rd and 30th (Cuzco and Juliaca only), 
+        team day trip and dinner in Cuzco, 2 T-shirts, ground transportation (Cuzco – Ayaviri), 
+        all meals in Ayaviri, participant contribution for medications, supplies and year around continue care 
+        for the population we serve.\n\n
+        It doesn't include: Personal expenses, voluntary tips, meals, airfare, nor anything not mentioned above. 
+        Current roundtrip air from major cities in the US to Cusco is approximately $2,000.\n\n
+        A USD 400.00 deposit is required with your application. 
+        The remaining balance is required by August 15th, 2023.''', 
+     'Contact: Katy Brant\nMission Coordinator\n(303) 476-1358')
+]
+
 
     sql = ''' INSERT INTO missions(Name, Date_to_begin, Date_to_end, Itinerary, Cost, mission_cost_description, Contact)
               VALUES(?,?,?,?,?,?,?) '''

@@ -8,9 +8,14 @@
         <h2>{{ mission[1] }}</h2> <!-- Mission Name -->
         <p><strong>Start Date:</strong> {{ mission[2] }}</p> <!-- Date_to_begin -->
         <p><strong>End Date:</strong> {{ mission[3] }}</p> <!-- Date_to_end -->
-        <p><strong>Itinerary:</strong> {{ mission[4] }}</p> <!-- Itinerary -->
+        <p><strong>Itinerary:</strong></p>
+        <ul>
+            {% for item in mission[4].split('\n') if item.strip() %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
         <p><strong>Cost:</strong> ${{ mission[5] }}</p> <!-- Cost -->
-        <p><strong>Cost Description:</strong> {{ mission[6] }}</p> <!-- mission_cost_description -->
+        <p><strong>Description:</strong> {{ mission[6] }}</p> <!-- mission_cost_description -->
         <p><strong>Contact:</strong> {{ mission[7] }}</p> <!-- Contact -->
     {% else %}
         <p>Sorry, no information is available for the requested mission.</p>
