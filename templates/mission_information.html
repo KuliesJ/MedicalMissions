@@ -3,9 +3,17 @@
 {% block title %}Mission Information | Medical Missions{% endblock %}
 
 {% block content %}
+<div class="imageContainer">
+    {% for image in images %}
+        
+            <img src="{{ url_for('static', filename=image.split('static/')[1]) }}" alt="Mission Image">
+
+        <br>
+    {% endfor %}
+</div>
 <div class="textContainer">
     {% if mission %}
-        <h2>{{ mission[1] }}</h2> <!-- Mission Name -->
+        <h1>{{ mission[1] }}</h1> <!-- Mission Name -->
         <p><strong>Start Date:</strong> {{ mission[2] }}</p> <!-- Date_to_begin -->
         <p><strong>End Date:</strong> {{ mission[3] }}</p> <!-- Date_to_end -->
         <p><strong>Itinerary:</strong></p>

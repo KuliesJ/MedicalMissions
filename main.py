@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
 import bcrypt
+import os
 
 app = Flask(__name__)
 app.secret_key = 'app.OsJoMeMi'
@@ -92,7 +93,15 @@ def getMission(mission_name):
 @app.route('/mission_information/<mission_name>')
 def missionInformation(mission_name):
     mission_ = getMission(mission_name)
-    return render_template('mission_information.html', mission=mission_)
+    
+    # Get image paths dynamically based on the mission_name
+    image_dir = f'static/{mission_name}_images'
+    if os.path.exists(image_dir):
+        images = [os.path.join(image_dir, img).replace('\\', '/') for img in os.listdir(image_dir) if img.endswith('.png')]
+    else:
+        images = []
+    
+    return render_template('mission_information.html', mission=mission_, images=images)
 
 @app.route('/terms_and_conditions')
 def termsAndConditions():

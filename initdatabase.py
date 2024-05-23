@@ -32,7 +32,7 @@ def insert_missions(conn):
     ('Ayaviri - 2011 (photos)', '2011-01-01', '2011-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
     ('Pamplona Alta - 2010 (video)', '2010-01-01', '2010-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
     ('Chincha, Ica - 2008 (slide show)', '2008-01-01', '2008-12-31', 'Itinerary Placeholder', 0.0, 'Cost Description Placeholder', 'Contact Placeholder'),
-    ('Ayaviri - 2023 (upcoming)', '2023-09-22', '2023-09-30', 
+    ('Ayaviri-2023', '2023-09-22', '2023-09-30', 
      '''September 22 - Depart US\n
         September 23 - Arrive Cusco/acclimate/Mandatory group meeting & dinner\n
         September 24 - Day trip as a mission group/get to know each other\n
