@@ -1,22 +1,37 @@
 {% extends 'template.html' %}
 
-{% block title %}Home | Medical Missions{% endblock %}
+{% block title %}Goals and Services{% endblock %}
 
 {% block content %}
-    
-    <div class="imageContainer">
-        <img src="{{ url_for('static', filename='images/home.png') }}">
-    </div>
-
-    <div class="textContainer">
-        <h2>Goals</h2>
-        <p>The main goal of our medical missions is to provide medical care to a large number of underserved people, among the poorest in <a class="link" href="/about_peru">Peru</a>. They live in precariously built places around Lima (capital of Peru) and in the Highlands of the Peruvian Andes; they usually do not have water, electricity or sewer services. All volunteers use their free time with the goal to serve people in their greatest need.</p>
-    
-        <h2>Services</h2>
-        <p>Most of the people who receive assistance are women, children, and the elderly. The children are usually malnourished and suffering from upper respiratory infections, diarrhea, parasitic diseases, and dermatological problems. The women become pregnant at early ages, have several children, and also suffer from precarious health. The elderly suffer from several chronic and debilitating diseases, blindness, osteoarthritis, etc.</p>
-    
-        <h2>Organization</h2>
-        <p>Medical Missions to Peru is directed and coordinated by a team of volunteers that includes physicians, nurses, and non-healthcare personnel since its creation in October 2006.</p>
-        <p>Our current Board Members include Luis E. Raez MD, Francisco G. La Rosa MD, Mr. Ken Chism, Dede Chism ARNP, and Brother Raoul Masseur.</p>
+    <div class="content create-post-container">
+        <h1>Goals and Services</h1>
+        {% for post in posts %}
+            <div class="post">
+                {% if post[1] %}
+                    <h2>{{ post[1] }}</h2> <!-- Title -->
+                {% endif %}
+                {% if post[2] %}
+                    <h3>{{ post[2] }}</h3> <!-- Subtitle -->
+                {% endif %}
+                {% if post[3] %}
+                    <p>{{ post[3] }}</p> <!-- Content -->
+                {% endif %}
+                {% if post[4] %}
+                    <img src="{{ url_for('static', filename=post[4][7:].replace('\\', '/')) }}" alt="Post Image"> <!-- Image -->
+                {% endif %}
+                
+                {% if 'user_id' in session %}
+                    {% if is_admin() %}
+                        <form method="POST" action="{{ url_for('editPosts') }}" class="edit-delete-form">
+                            <input type="hidden" name="post_id" value="{{ post[0] }}"> <!-- Aquí post[0] debe ser el ID del post -->
+                            <button type="submit" name="action" value="edit" class="button-30">Edit</button>
+                            <button type="submit" name="action" value="delete" class="button-30">Delete</button>
+                            <button type="submit" name="action" value="move_up" class="button-30">Move Up</button>
+                            <button type="submit" name="action" value="move_down" class="button-30">Move Down</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

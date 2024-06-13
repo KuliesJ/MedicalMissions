@@ -1,0 +1,21 @@
+{% extends 'template.html' %}
+
+{% block title %}Select Section{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <h1>Select Section to Edit</h1>
+        <form method="POST" action="{{ url_for('editContent') }}">
+            <label for="section">Section:</label><br>
+            <select id="section" name="section">
+                <option value="goals_and_services">Goals and Services</option>
+                <option value="next_mission">Next Mission</option>
+                <option value="previous_missions">Previous Missions</option>
+                <option value="contact_us">Contact Us</option>
+                <option value="photo_videos">Photo and Videos</option>
+                <option value="terms_and_conditions">Terms and Conditions</option>
+            </select><br>
+            <button type="submit">Select</button>
+        </form>
+    </div>
+{% endblock %}

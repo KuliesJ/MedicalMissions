@@ -4,6 +4,105 @@
     --accent-color: #ffc107; /* Yellow color */
   }
 
+  .post {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo para el contenedor del formulario de creación de publicaciones */
+.create-post-container {
+    max-width: 1000px;
+    margin: 160px auto;
+    background-color: #fff;
+    padding: 50px;
+    padding-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Añadido para asegurar que el contenido esté bien alineado */
+}
+
+/* Estilo para el título */
+.create-post-container h1 {
+    margin-left: 10px; /* Ajusta este valor según sea necesario */
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilo para los grupos de formularios */
+.create-post-container .form-group {
+    margin-bottom: 15px;
+}
+
+/* Estilo para etiquetas del formulario */
+.create-post-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilo para los campos de entrada del formulario */
+.create-post-container input[type="text"],
+.create-post-container select,
+.create-post-container textarea,
+.create-post-container input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Estilo para el botón de publicación */
+.create-post-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-post-container button:hover {
+    background-color: #e0a800;
+}
+
+/* Estilo para el campo de texto */
+.create-post-container textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Estilo para mensajes de error */
+.create-post-container .error {
+    color: #ff0000;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.post h2 {
+    margin-top: 0;
+}
+
+.post h3 {
+    color: #666;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,6 +117,32 @@ header {
     color: #fff;
     padding: 10px;
 }
+
+.create-form {
+    color: #000000; /* Color de texto negro */
+}
+.create-form select {
+    color: #000000; /* Color de texto negro para el select */
+}
+.create-form textarea {
+    color: #000000; /* Color de texto negro para el select */
+}
+
+.create-form select option {
+    color: #000000; /* Color de texto negro para las opciones del select */
+}
+.create-form label {
+    color: #000000; /* Color de las etiquetas de texto negro */
+}
+
+.create-form input {
+    color: #000000; /* Color del texto de entrada negro */
+}
+
+.create-form button {
+    color: #000000; /* Color del texto del botón negro */
+}
+
 
 nav {
     display: flex;
@@ -161,7 +286,7 @@ header nav img {
     display: block; /* Ensure the image is displayed as a block element */
 }
 
-form {
+.login-form {
     padding: 0;
     margin: 0;
     box-sizing: border-box;

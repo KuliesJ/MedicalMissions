@@ -1,70 +1,37 @@
 {% extends 'template.html' %}
 
-{% block title %}Home | Medical Missions{% endblock %}
+{% block title %}Contact Us{% endblock %}
 
 {% block content %}
-    
-    <div class="imageContainer">
-        <img src="{{ url_for('static', filename='images/homed.png') }}"> 
+    <div class="content create-post-container"> 
+        <h1>Contact Us</h1>
+        {% for post in posts %}
+            <div class="post">
+                {% if post[1] %}
+                    <h2>{{ post[1] }}</h2> <!-- Title -->
+                {% endif %}
+                {% if post[2] %}
+                    <h3>{{ post[2] }}</h3> <!-- Subtitle -->
+                {% endif %}
+                {% if post[3] %}
+                    <p>{{ post[3] }}</p> <!-- Content -->
+                {% endif %}
+                {% if post[4] %}
+                    <img src="{{ url_for('static', filename=post[4][7:].replace('\\', '/')) }}" alt="Post Image"> <!-- Image -->
+                {% endif %}
+                
+                {% if 'user_id' in session %}
+                    {% if is_admin() %}
+                        <form method="POST" action="{{ url_for('editPosts') }}" class="edit-delete-form">
+                            <input type="hidden" name="post_id" value="{{ post[0] }}"> <!-- Aquí post[0] debe ser el ID del post -->
+                            <button type="submit" name="action" value="edit" class="button-30">Edit</button>
+                            <button type="submit" name="action" value="delete" class="button-30">Delete</button>
+                            <button type="submit" name="action" value="move_up" class="button-30">Move Up</button>
+                            <button type="submit" name="action" value="move_down" class="button-30">Move Down</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
     </div>
-    
-    <div class="textContainer">
-        <h2>FLORIDA:</h2>
-        <ul>
-            <li>
-                Silvia Ortiz (Coordinator)<br>
-                Phone: (786) 229-7615<br>
-                Email: <a href="mailto:medicalmissions@clmusa.org">medicalmissions@clmusa.org</a>
-            </li>
-            <li>
-                Dr. Luis Raez<br>
-                Email: <a href="mailto:lraez2003@yahoo.com">lraez2003@yahoo.com</a>
-            </li>
-        </ul>
-    
-        <h2>CALIFORNIA:</h2>
-        <ul>
-            <li>
-                Brian Shields<br>
-                Email: <a href="mailto:Brian_Shields@bus.emory.edu">Brian_Shields@bus.emory.edu</a>
-            </li>
-        </ul>
-    
-        <h2>COLORADO:</h2>
-        <ul>
-            <li>
-                Dr. Francisco G. La Rosa<br>
-                Phone: (303) 549-4450<br>
-                Email: <a href="mailto:webmaster@clmusa.org">webmaster@clmusa.org</a>
-            </li>
-            <li>
-                Dede and Ken Chism<br>
-                Phone: (303) 932-1779<br>
-                Email: <a href="mailto:ayaviri.mission@clmusa.org">ayaviri.mission@clmusa.org</a>
-            </li>
-            <li>
-                Katy Brant (General Coordinator)<br>
-                Phone: (303) 476-1358<br>
-                Email: <a href="mailto:ayaviri.mission@clmusa.org">ayaviri.mission@clmusa.org</a>
-            </li>
-        </ul>
-    
-        <h2>Solidarity Experiences Abroad Inc:</h2>
-        <ul>
-            <li>
-                Br. Raoul Masseur<br>
-                Phone: (905) 340-0460<br>
-                Email: <a href="mailto:rmasseur@gmail.com">rmasseur@gmail.com</a>
-            </li>
-            <li>
-                Ms. Megan Blair RN<br>
-                Phone: (905) 447-4472<br>
-                Email: <a href="mailto:meganaliciablair@gmail.com">meganaliciablair@gmail.com</a>
-            </li>
-        </ul>
-    
-        <p>Mailing List: You can join our mailing list to keep you informed about our activities. Please, subscribe at: <a href="mailto:webmaster@clmusa.org">webmaster@clmusa.org</a></p>
-    </div>
-    
-    
 {% endblock %}

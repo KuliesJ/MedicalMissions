@@ -1,17 +1,37 @@
 {% extends 'template.html' %}
 
-{% block title %}Home | Medical Missions{% endblock %}
+{% block title %}Photo and Videos{% endblock %}
 
 {% block content %}
-    
-    <div class="imageContainer">
-        <img src="{{ url_for('static', filename='images/homed.png') }}"> 
+    <div class="content create-post-container">
+        <h1>Photo and Videos</h1>
+        {% for post in posts %}
+            <div class="post">
+                {% if post[1] %}
+                    <h2>{{ post[1] }}</h2> <!-- Title -->
+                {% endif %}
+                {% if post[2] %}
+                    <h3>{{ post[2] }}</h3> <!-- Subtitle -->
+                {% endif %}
+                {% if post[3] %}
+                    <p>{{ post[3] }}</p> <!-- Content -->
+                {% endif %}
+                {% if post[4] %}
+                    <img src="{{ url_for('static', filename=post[4][7:].replace('\\', '/')) }}" alt="Post Image"> <!-- Image -->
+                {% endif %}
+                
+                {% if 'user_id' in session %}
+                    {% if is_admin() %}
+                        <form method="POST" action="{{ url_for('editPosts') }}" class="edit-delete-form">
+                            <input type="hidden" name="post_id" value="{{ post[0] }}"> <!-- Aquí post[0] debe ser el ID del post -->
+                            <button type="submit" name="action" value="edit" class="button-30">Edit</button>
+                            <button type="submit" name="action" value="delete" class="button-30">Delete</button>
+                            <button type="submit" name="action" value="move_up" class="button-30">Move Up</button>
+                            <button type="submit" name="action" value="move_down" class="button-30">Move Down</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
     </div>
-
-    <div class="textContainer">
-        <h2>Placeholder for videos</h2>
-    </div>
-    
-    
-    
 {% endblock %}

@@ -1,26 +1,37 @@
 {% extends 'template.html' %}
 
-{% block title %}Home | Medical Missions{% endblock %}
+{% block title %}Terms and Conditions{% endblock %}
 
 {% block content %}
-
-    <div class="textContainer">
-        <h2>Terms and Conditions</h2>
-        <p>The Medical Missions to Peru is a Catholic activity and its purpose is to serve the poor and underserved people in Peru. The missions welcome people with different religious beliefs who want to share the spirit of service to the sick and the poor. Under the activities scheduled, we will include Catholic masses, prayers, and visits to Catholic religious places in the towns we travel.</p>
-
-        <p>Volunteers joining the missions sign an agreement to hereby release, forever discharge and agree to hold the Medical Mission Team, their leaders or Solidaridad en Marcha or the Christian Life Movement harmless from and against any and all liability, claims, demands, lawsuits and expenses arising from personal injury, sickness, death, or property damage of any nature whatsoever, which may be incurred or suffered by the undersigned and or the participant (if participant is under 18, or 18 and older) while attending the Medical Missions to Peru.</p>
-
-        <p>Furthermore, the undersigned hereby assumes all risk of personal injury, sickness, death, damage and expense arising from the undersigned's or participant's (if participant is under 18, or 18 and older) participation in all activities, including recreation and work activities involved in the above activity. In addition, authorization and permission is hereby given to furnish all necessary transportation, food, and lodging for the undersigned or participant (if participant is under 18, or 18 and older).</p>
-
-        <p>We also request permission for use of any photos taken in the course of the program for its future publicity. The name of the participant will not be used without permission.</p>
-
-        <p>If participant is less than 18 years of age: The parents(s) or legal guardian(s) of the participant, need to grant permission to participate fully in the above activity and all of its undertakings, however one of the parents or guardians will go with the minor in the trip.</p>
-
-        <p>The participant will be notified ahead of time of the schedule and activities on the mission trips and he/she will be responsible to participate in some or all of them. However, if the participant leaves the mission group or site at any time, day or night, the participant will have taken extra and unnecessary risks not contemplated in the original plan. This behavior is not recommended and it will be considered disruptive for the well-being of the mission group.</p>
-
-        <p>If the participant wants to arrive to Peru earlier or stay longer after the mission for tourism or other reasons, the participant is responsible for making their own travel arrangements and the participant will be responsible for their own security, expenses and risks taken.</p>
-
-        <p>Furthermore, should it be necessary for the participant to return home due to medical reasons, disciplinary action or otherwise, the participant assumes all responsibility and transportation costs. We strongly recommend that you travel with a health insurance for tourists or be aware whether or not your health carrier provides you with a health insurance coverage to travel to Peru.</p>
+    <div class="content create-post-container">
+        <h1>Terms and Conditions</h1>
+        {% for post in posts %}
+            <div class="post">
+                {% if post[1] %}
+                    <h2>{{ post[1] }}</h2> <!-- Title -->
+                {% endif %}
+                {% if post[2] %}
+                    <h3>{{ post[2] }}</h3> <!-- Subtitle -->
+                {% endif %}
+                {% if post[3] %}
+                    <p>{{ post[3] }}</p> <!-- Content -->
+                {% endif %}
+                {% if post[4] %}
+                    <img src="{{ url_for('static', filename=post[4][7:].replace('\\', '/')) }}" alt="Post Image"> <!-- Image -->
+                {% endif %}
+                
+                {% if 'user_id' in session %}
+                    {% if is_admin() %}
+                        <form method="POST" action="{{ url_for('editPosts') }}" class="edit-delete-form">
+                            <input type="hidden" name="post_id" value="{{ post[0] }}"> <!-- Aquí post[0] debe ser el ID del post -->
+                            <button type="submit" name="action" value="edit" class="button-30">Edit</button>
+                            <button type="submit" name="action" value="delete" class="button-30">Delete</button>
+                            <button type="submit" name="action" value="move_up" class="button-30">Move Up</button>
+                            <button type="submit" name="action" value="move_down" class="button-30">Move Down</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
     </div>
-    
 {% endblock %}

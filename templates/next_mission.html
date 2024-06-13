@@ -1,30 +1,37 @@
 {% extends 'template.html' %}
 
-{% block title %}Home | Medical Missions{% endblock %}
+{% block title %}Next Mission{% endblock %}
 
 {% block content %}
-    
-    <div class="imageContainer">
-        <img src="{{ url_for('static', filename='images/homed.png') }}"> 
+    <div class="content create-post-container">
+        <h1>Next Mission</h1>
+        {% for post in posts %}
+            <div class="post">
+                {% if post[1] %}
+                    <h2>{{ post[1] }}</h2> <!-- Title -->
+                {% endif %}
+                {% if post[2] %}
+                    <h3>{{ post[2] }}</h3> <!-- Subtitle -->
+                {% endif %}
+                {% if post[3] %}
+                    <p>{{ post[3] }}</p> <!-- Content -->
+                {% endif %}
+                {% if post[4] %}
+                    <img src="{{ url_for('static', filename=post[4][7:].replace('\\', '/')) }}" alt="Post Image"> <!-- Image -->
+                {% endif %}
+                
+                {% if 'user_id' in session %}
+                    {% if is_admin() %}
+                        <form method="POST" action="{{ url_for('editPosts') }}" class="edit-delete-form">
+                            <input type="hidden" name="post_id" value="{{ post[0] }}"> <!-- Aquí post[0] debe ser el ID del post -->
+                            <button type="submit" name="action" value="edit" class="button-30">Edit</button>
+                            <button type="submit" name="action" value="delete" class="button-30">Delete</button>
+                            <button type="submit" name="action" value="move_up" class="button-30">Move Up</button>
+                            <button type="submit" name="action" value="move_down" class="button-30">Move Down</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
     </div>
-
-    <div class="textContainer">
-        <h2>Seeking to Help the Poor</h2>
-        <p>Seeking to help the poor, and to create life conditions according to human rights and dignity, the <a class="link" href="http://clmusa.org/">Christian Life Movement USA</a>, and <a class="link" href="http://www.solidaridadenmarcha.org/">Solidaridad en Marcha (SEM)</a> are working to provide medical care to the poorest of the poor in Peru and Latin America. Many of these children and families suffer from serious infections and diseases. In the past, our Medical Missions have aided approximately 3,500 patients per trip in an average of 3 days.</p>
-    
-        <h2>Upcoming Medical Mission Trips</h2>
-        <ul>
-            <li>
-                <strong>AYAVIRI, Puno (Mountains, high altitude)</strong><br>
-                September 22-30, 2023<br>
-                Acclimatization in Cuzco followed by 4 days of intense medical campaign<br>
-                Contact: Katy Brant (General Coordinator)<br>
-                Email: <a class="link" href="mailto:ayaviri.mission@clmusa.org">ayaviri.mission@clmusa.org</a><br>
-                Phone: 303-476-1358<br>
-                <a class="link" href="https://medicalmissions.clmusa.org/ayaviri/index.html">Read More</a>
-            </li>
-        </ul>
-    </div>
-    
-    
 {% endblock %}

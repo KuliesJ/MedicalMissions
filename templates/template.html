@@ -17,9 +17,9 @@
                 {% if 'user_id' in session %}
                     <li>Welcome, {{ session['user_name'] }}</li>
                     <li><a href="{{ url_for('logout') }}" class="button-30">Logout</a></li>
+                    <li><a href="{{ url_for('createPost') }}" class="button-30">Create Post</a></li>
                 {% else %}
                     <li><a href="{{ url_for('login') }}" class="button-30">Login</a></li>
-                    <li><a href="{{ url_for('register') }}" class="button-30">Register</a></li>
                 {% endif %}
             </ul>
         </nav>

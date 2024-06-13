@@ -1,0 +1,22 @@
+{% extends 'template.html' %}
+
+{% block title %}Edit Content{% endblock %}
+
+{% block content %}
+    <h1>Edit Content for {{ section }}</h1>
+    {% for post in posts %}
+    <div class="post">
+        <h2>{{ post[1] }}</h2>
+        <p>{{ post[2] }}</p>
+        <p>{{ post[3] }}</p>
+        {% if post[4] %}
+        <img src="{{ url_for('static', filename=post[4].split('static/')[1]) }}" alt="{{ post[1] }}">
+        {% endif %}
+        <form method="POST" action="{{ url_for('editPosts') }}" class="edit-delete-form">
+            <input type="hidden" name="post_id" value="{{ post[0] }}">
+            <button type="submit" name="action" value="edit" class="button-30">Edit</button>
+            <button type="submit" name="action" value="delete" class="button-30">Delete</button>
+        </form>
+    </div>
+    {% endfor %}
+{% endblock %}
