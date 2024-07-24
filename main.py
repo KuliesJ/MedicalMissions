@@ -102,6 +102,10 @@ def login():
             return render_template("login.html", error="Invalid username or password")
     return render_template("login.html")
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("not_found.html"), 404
+
 @app.route('/create_post', methods=['GET', 'POST'])
 def createPost():
     if 'user_id' not in session or not is_admin():
