@@ -1,0 +1,42 @@
+{% extends 'template.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="my-4">{{ title }}</h1>
+        {% for post in posts %}
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <div style="border: 2px solid #ccc; border-radius: 5px; padding: 20px;">
+                    {% if post[1] %}
+                        <h2 class="card-title">{{ post[1] }}</h2> <!-- Title -->
+                    {% endif %}
+                    {% if post[2] %}
+                        <h3 class="card-subtitle mb-2 text-muted">{{ post[2] }}</h3> <!-- Subtitle -->
+                    {% endif %}
+                    {% if post[3] %}
+                        <p class="card-text">{{ post[3] }}</p> <!-- Content -->
+                    {% endif %}
+                    {% if post[4] %}
+                        <img src="{{ url_for('static', filename=post[4][7:].replace('\\', '/')) }}" class="img-fluid mb-3" alt="Post Image"> <!-- Image -->
+                    {% endif %}
+                    
+                    {% if 'user_id' in session %}
+                        {% if is_admin() %}
+                            <form method="POST" action="{{ url_for('editPosts') }}" class="edit-delete-form">
+                                <input type="hidden" name="post_id" value="{{ post[0] }}"> <!-- Aquí post[0] debe ser el ID del post -->
+                                <button type="submit" name="action" value="edit" class="btn btn-primary btn-sm me-2" style="border-radius: 5px;">Edit</button>
+                                <button type="submit" name="action" value="delete" class="btn btn-danger btn-sm me-2" style="border-radius: 5px;">Delete</button>
+                                <button type="submit" name="action" value="move_up" class="btn btn-secondary btn-sm me-2" style="border-radius: 5px;">Move Up</button>
+                                <button type="submit" name="action" value="move_down" class="btn btn-secondary btn-sm me-2" style="border-radius: 5px;">Move Down</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+{% endblock %}

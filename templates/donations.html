@@ -3,57 +3,82 @@
 {% block title %}Home | Medical Missions{% endblock %}
 
 {% block content %}
-    
-    <div class="imageContainer">
-        <img src="{{ url_for('static', filename='images/taking_care_of_a_baby.png') }}"> 
-    </div>
+    <div class="container">
+        <h1 class="my-4">How to help</h1>
 
-    <div class="textContainer">
-        <h2>DONATE ONLINE</h2>
-        <p>(Tax deductible)</p>
-        <p>Please join our mission efforts and make your tax deductible donation using PayPal by clicking the button below.</p>
-        <a href="https://www.paypal.com/donate?token=maOska9quuT_TJAkrRmWv6IxSuwPwbWPlkbsvYxm8WvAlU3LjGSv7IKQfd_-zRC0yoiGQP2hCJn4nxco" target="_blank">
-            <img src="{{ url_for('static', filename='images/donate.png') }}">
-        </a>
-       
-        <p>PayPal - The safer, easier way to pay online!</p>
-        <p>Or Mail your donation to:</p>
-        <p>Denise McNeely (c/o CLM)<br>
-        6251 W. Alamo Dr.<br>
-        Littleton, CO, 80123</p>
-        <h3>PAYING WITH CHECK or MONEY ORDER:</h3>
-        <table class="donation-table">
-            <tr>
-                <td class="donation-cell">
-                    <h3>Make checks/money orders to:</h3>
-                    <p>Christian Life Movement</p>
-                    <p>and</p>
-                    <p>Write a Memo on the check: "(specify cause)"</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="donation-cell">
-                    <h3>MAIL TO:</h3>
-                    <p>Denise McNeely (c/o Medical Missions)<br>
-                    6251 W. Alamo Dr.<br>
-                    Littleton, CO, 80123</p>
-                </td>
-            </tr>
-        </table>
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <div style="border: 2px solid #ccc; border-radius: 5px; padding: 20px;">
+                    <h2 class="card-title">Donate Online</h2>
+                    <p class="card-text">Please join our mission efforts and make your tax deductible donation using PayPal by clicking the button below.</p>
+                    <div class="text-center">
+                        <a href="https://www.paypal.com/donate?token=tMMqOa0VbOBbLWrNyoo-0v4yAFFBpskNgVp5kMOr-msUZaJ-lltayysWzd8voNEG79VUYmriRrijYPUr" target="_blank" style="display: inline-block; border: 2px solid #000000; border-radius: 5px; padding: 10px;">
+                            <img src="{{ url_for('static', filename='images/donate.png') }}" style="max-width: 100%; height: auto;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <h3>Non-Monetary Donations</h3>
-        <p>(We discourage material donations for emergency cases)</p>
-        <p>Below is the basic information on current Peruvian legislation about sending non-monetary donations to Peru:</p>
-        <p><a href="/donation_requirements.html">Donation Requirements for Missions Traveling to Peru (English)<br>
-            Article Nº 14 of the Peruvian Supreme Decree No. 021-2008-EF</a></p>
-        <p><a href="{{ url_for('static', filename='documents/DS021-2008-EF-28905-English.pdf') }}" download="DS021-2008-EF-28905-English.pdf">Law of Facilitation of the Dispatch of Donated Merchandise Originated in Foreign Nations - Regulation of the Law Nº 28905 (English)</a></p>
-        <p><a href="{{ url_for('static', filename='documents/ModeloCartaDonacion.pdf') }}" download="ModeloCartaDonacion.pdf">Model of Donation Letter (Spanish)</a> (This document must be submitted by the entity sending the donation and written in Spanish)</p>
-        <p><a href="{{ url_for('static', filename='documents/ApplicationMinisterialResolutionDonation.doc') }}" download="ApplicationMinisterialResolutionDonation.doc">Application Form for Obtaining a Ministerial Resolution to Approve Foreign Donations (English)</a> (This document must be submitted by the Peruvian entity receiving the donation and written in Spanish)</p>
-        <h3>Other References:</h3>
-        <p><a href="http://www.aduanet.gob.pe/orientacAduana/index.html" target="_blank">Orientación Aduanera (SUNAT)</a> (Official Peruvian Web Site)</p>
-        <p><a href="https://www.usig.org/#General_Legal_Forms" target="_blank">Information about Peru Non-for-Profit Organizations<br>United States International Grantmaking (USIG)</a></p>
-    </div>
-    
-    
-    
+
+        <div class="card mb-4">
+            <div class="card-body text-center"> <!-- Añadido text-center para centrar el contenido -->
+                <div style="border: 2px solid #ccc; border-radius: 5px; padding: 20px;">
+                    <h2 class="card-title">Mail your donation</h2>
+                    <p class="card-text">Denise McNeely (c/o CLM)</p>
+                    <p class="card-text">6251 W. Alamo Dr.</p>
+                    <p class="card-text">Littleton, CO, 80123</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-body text-center"> <!-- Añadido text-center para centrar el contenido -->
+                <div style="border: 2px solid #ccc; border-radius: 5px; padding: 20px;">
+                    <h2 class="card-title">Make checks/money orders to:</h2>
+                    <p class="card-text">Christian Life Movement</p>
+                    <p class="card-text">Write a Memo on the check: "(specify cause)"</p>
+                    
+                    <h2 class="card-title mt-4">MAIL TO:</h2>
+                    <p class="card-text">Denise McNeely (c/o Medical Missions)</p>
+                    <p class="card-text">6251 W. Alamo Dr.</p>
+                    <p class="card-text">Littleton, CO, 80123</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <div style="border: 2px solid #ccc; border-radius: 5px; padding: 20px;">
+                    <h2 class="card-title">Non-Monetary Donations</h2>
+                    <p class="card-text text-justify">(We discourage material donations for emergency cases)</p>
+                    <p class="card-text text-justify">Below is the basic information on current Peruvian legislation about sending non-monetary donations to Peru:</p>
+                    <ul class="card-text" style="padding-left: 0;">
+                        <li style="margin-bottom: 10px; list-style-type: none; text-align: left;"><i class="bi bi-dot"></i> <a href="/donation_requirements.html">Donation Requirements for Missions Traveling to Peru (English)<br>
+                            Article Nº 14 of the Peruvian Supreme Decree No. 021-2008-EF</a></li>
+                        <li style="margin-bottom: 10px; list-style-type: none; text-align: left;"><i class="bi bi-dot"></i> <a href="{{ url_for('static', filename='documents/DS021-2008-EF-28905-English.pdf') }}" download="DS021-2008-EF-28905-English.pdf">Law of Facilitation of the Dispatch of Donated Merchandise Originated in Foreign Nations - Regulation of the Law Nº 28905 (English)</a></li>
+                        <li style="margin-bottom: 10px; list-style-type: none; text-align: left;"><i class="bi bi-dot"></i> <a href="{{ url_for('static', filename='documents/ModeloCartaDonacion.pdf') }}" download="ModeloCartaDonacion.pdf">Model of Donation Letter (Spanish)</a> (This document must be submitted by the entity sending the donation and written in Spanish)</li>
+                        <li style="margin-bottom: 10px; list-style-type: none; text-align: left;"><i class="bi bi-dot"></i> <a href="{{ url_for('static', filename='documents/ApplicationMinisterialResolutionDonation.doc') }}" download="ApplicationMinisterialResolutionDonation.doc">Application Form for Obtaining a Ministerial Resolution to Approve Foreign Donations (English)</a> (This document must be submitted by the Peruvian entity receiving the donation and written in Spanish)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-body text-center"> <!-- Añadido text-center para centrar el contenido -->
+                <div style="border: 2px solid #ccc; border-radius: 5px; padding: 20px;">
+                    <h2 class="card-title">Other references</h2>
+                    <ul class="card-text" style="padding-left: 0;">
+                        <li style="margin-bottom: 10px; list-style-type: none; text-align: left;">
+                            <a href="http://www.aduanet.gob.pe/orientacAduana/index.html" target="_blank"><i class="bi bi-dot"></i>Orientación Aduanera (SUNAT)</a> (Official Peruvian Web Site)
+                        </li>
+                        <li style="margin-bottom: 10px; list-style-type: none; text-align: left;">
+                            <a href="https://www.usig.org/#General_Legal_Forms" target="_blank"><i class="bi bi-dot"></i>Information about Peru Non-for-Profit Organizations<br>United States International Grantmaking (USIG)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
 {% endblock %}

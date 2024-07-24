@@ -49,31 +49,31 @@ def get_posts_by_section(section):
 @app.route('/goals_and_services')
 def goalsServices():
     posts = get_posts_by_section('goals_and_services')
-    return render_template("goals_services.html", posts=posts)
+    return render_template("display_posts.html", title="Goals and Services", posts=posts)
 
-@app.route('/next_mission')
+@app.route('/next_mission_trip')
 def nextMission():
     posts = get_posts_by_section('next_mission')
-    return render_template("next_mission.html", posts=posts)
+    return render_template("display_posts.html", title="Next Mission Trip", posts=posts)
 
-@app.route('/donations')
+@app.route('/how_to_help')
 def donations():
     return render_template("donations.html")
 
 @app.route('/contact_us')
 def contactUs():
     posts = get_posts_by_section('contact_us')
-    return render_template("contact_us.html", posts=posts)
+    return render_template("display_posts.html", title="Contact Us", posts=posts)
 
-@app.route('/photo_videos')
+@app.route('/photos_videos')
 def photoVideos():
     posts = get_posts_by_section('photo_videos')
-    return render_template("photo_videos.html", posts=posts)
+    return render_template("display_posts.html", title="Photos and Videos", posts=posts)
 
 @app.route('/terms_and_conditions')
 def termsAndConditions():
     posts = get_posts_by_section('terms_and_conditions')
-    return render_template('terms.html', posts=posts)
+    return render_template('display_posts.html', title="Terms and Conditions" ,posts=posts)
 
 @app.route('/about_peru')
 def aboutPeru():
@@ -82,7 +82,7 @@ def aboutPeru():
 @app.route('/previous_missions')
 def previousMissions():
     posts = get_posts_by_section('previous_missions')
-    return render_template("previous_missions.html", posts=posts)
+    return render_template("display_posts.html", title="Previous Missions",posts=posts)
 
 @app.route('/login_account', methods=['GET', 'POST'])
 def login():
